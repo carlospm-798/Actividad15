@@ -271,6 +271,7 @@
     </property>
     <addaction name="actionguardar"/>
     <addaction name="actionabrir"/>
+    <addaction name="actiongrafo"/>
    </widget>
    <addaction name="menuguardar"/>
   </widget>
@@ -289,6 +290,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actiongrafo">
+   <property name="text">
+    <string>grafo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
  </widget>
