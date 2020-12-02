@@ -4,6 +4,7 @@ Libreria de particulas.
 """
 from particula import Particula
 import json
+from pprint import pprint, pformat
 
 class Libreria:
     def __init__(self):
@@ -15,6 +16,27 @@ class Libreria:
     def mostrar(self):
         for particula in self.__particulas:
             print(particula)
+    
+    def mostrar_diccionario(self):
+        diccionario = dict()
+
+        for particula in self.__particulas:
+            key = particula.origen_x, particula.origen_y
+            value = particula.destino_x, particula.destino_y, particula.distancia
+            key_2 = particula.destino_x, particula.destino_y
+            value_2 = particula.origen_x, particula.origen_y, particula.distancia
+
+            if key in diccionario:
+                diccionario[key].append(value)
+            else:
+                diccionario[key] = [value]
+            if key_2 in diccionario:
+                diccionario[key_2].append(value_2)
+            else:
+                diccionario[key_2] = [value_2]
+                
+        str = pformat(diccionario, width = 40, indent = 1)
+        return str
 
     def __str__(self):
         return "".join(
