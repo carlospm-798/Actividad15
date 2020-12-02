@@ -10,6 +10,8 @@ from random import randint
 from ui_mainwindow import Ui_MainWindow
 from libreria import Libreria #particulas - Particulas
 from particula import Particula
+from pprint import pprint
+from pprint import pformat
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -27,7 +29,8 @@ class MainWindow(QMainWindow):
         self.ui.ordenar_distancia_pushButton.clicked.connect(self.ordenar_distancia)
 
         self.ui.actionguardar.triggered.connect(self.action_guardar) #agregado
-        self.ui.actionabrir.triggered.connect(self.action_abrir) #agregado   
+        self.ui.actionabrir.triggered.connect(self.action_abrir) #agregado
+        self.ui.actiongrafo.triggered.connect(self.mostrar_diccionario)
 
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
@@ -37,6 +40,16 @@ class MainWindow(QMainWindow):
             self.ui.graphicsView.scale(1.2, 1.2)
         else:
             self.ui.graphicsView.scale(0.8, 0.8)
+
+    @Slot()
+    def mostrar_diccionario(self):
+        self.ui.salida.clear()
+        self.ui.salida.insertPlainText(self.libreria.mostrar_diccionario())
+        QMessageBox.information(
+            self,
+            'Exito',
+            "Se imprimio el diccionario "
+        )
 
     @Slot()
     def click_agregar(self):
