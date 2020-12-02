@@ -22,6 +22,8 @@ class Ui_MainWindow(object):
         self.actionguardar.setObjectName(u"actionguardar")
         self.actionabrir = QAction(MainWindow)
         self.actionabrir.setObjectName(u"actionabrir")
+        self.actiongrafo = QAction(MainWindow)
+        self.actiongrafo.setObjectName(u"actiongrafo")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_7 = QGridLayout(self.centralwidget)
@@ -218,6 +220,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuguardar.menuAction())
         self.menuguardar.addAction(self.actionguardar)
         self.menuguardar.addAction(self.actionabrir)
+        self.menuguardar.addAction(self.actiongrafo)
 
         self.retranslateUi(MainWindow)
 
@@ -236,6 +239,10 @@ class Ui_MainWindow(object):
         self.actionabrir.setText(QCoreApplication.translate("MainWindow", u"abrir", None))
 #if QT_CONFIG(shortcut)
         self.actionabrir.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
+#endif // QT_CONFIG(shortcut)
+        self.actiongrafo.setText(QCoreApplication.translate("MainWindow", u"grafo", None))
+#if QT_CONFIG(shortcut)
+        self.actiongrafo.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+G", None))
 #endif // QT_CONFIG(shortcut)
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Main", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Visual", None))
