@@ -226,7 +226,6 @@ class Ui_MainWindow(object):
         self.menuguardar.addAction(self.actionabrir)
         self.menuguardar.addAction(self.actiongrafo)
         self.menuguardar.addAction(self.actionRecorrido_en_Profundidad_Amplitud)
-        self.menuguardar.addAction(self.actionRecorrido_en_Amplitud)
 
         self.retranslateUi(MainWindow)
 
@@ -250,7 +249,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.actiongrafo.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+G", None))
 #endif // QT_CONFIG(shortcut)
-        self.actionRecorrido_en_Profundidad_Amplitud.setText(QCoreApplication.translate("MainWindow", u"Recorrido en Profundidad", None))
+        self.actionRecorrido_en_Profundidad_Amplitud.setText(QCoreApplication.translate("MainWindow", u"Recorrido en Profundidad/Amplitud", None))
 #if QT_CONFIG(shortcut)
         self.actionRecorrido_en_Profundidad_Amplitud.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+H", None))
 #endif // QT_CONFIG(shortcut)
