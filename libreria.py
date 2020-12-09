@@ -19,7 +19,7 @@ class Libreria:
             print(particula)
     
     def mostrar_diccionario(self, grafo):
-        #diccionario = dict()
+        diccionario = dict()
 
         for particula in self.__particulas:
             key = particula.origen_x, particula.origen_y
@@ -54,7 +54,7 @@ class Libreria:
             while len(pila) > 0:
                 vertice = pila[-1]
                 recorrido.append(vertice)
-                pila.pop
+                pila.pop()
                 adyacente = grafo[vertice] #key error 0
                 for i in adyacente:
                     if not i[0] in visitados:
@@ -81,7 +81,7 @@ class Libreria:
                 recorrido.append(vertice)
                 cola.pop()
                 
-                adyacente = grafo[vertice]
+                adyacente = grafo(vertice)
                 for i in adyacente:
                     if not i in visitados:
                         visitados.append(i[0])
