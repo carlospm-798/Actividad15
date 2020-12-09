@@ -46,8 +46,8 @@ class MainWindow(QMainWindow):
     
     @Slot()
     def recorrido_p_a(self):
-        origen_x = self.ui.origen_x_spinBox.value()
-        origen_y = self.ui.origen_y_spinBox.value()
+        origen_x = self.ui.origen_x_spinBox.value() #toma de valores
+        origen_y = self.ui.origen_y_spinBox.value() 
         if not self.libreria.metodo_p(self.grafo, origen_x, origen_y): #acceder a metodos y cargar parametros
             QMessageBox.warning(
                 self,
@@ -64,10 +64,8 @@ class MainWindow(QMainWindow):
                 self.ui.salida.insertPlainText(str(i) + '\n')
                 print(i)
 
-            amplitud = self.particulas.metodo_a(self.grafo, origen_x, origen_y)
+            amplitud = self.libreria.metodo_a(self.grafo, origen_x, origen_y)
             print('Amplitud: \n')
-
-            self.ui.salida.clear()
             self.ui.salida.insertPlainText('Amplitud:' + '\n')
             for i in amplitud:
                 self.ui.salida.insertPlainText(str(i) + '\n')
