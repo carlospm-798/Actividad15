@@ -48,7 +48,7 @@ class MainWindow(QMainWindow):
     def recorrido_p_a(self):
         origen_x = self.ui.origen_x_spinBox.value()
         origen_y = self.ui.origen_y_spinBox.value()
-        if not self.libreria.metodo_p(self.grafo, origen_x, origen_y):
+        if not self.libreria.metodo_p(self.grafo, origen_x, origen_y): #acceder a metodos y cargar parametros
             QMessageBox.warning(
                 self,
                 'Aviso',
