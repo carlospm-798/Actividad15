@@ -272,6 +272,8 @@
     <addaction name="actionguardar"/>
     <addaction name="actionabrir"/>
     <addaction name="actiongrafo"/>
+    <addaction name="actionRecorrido_en_Profundidad_Amplitud"/>
+    <addaction name="actionRecorrido_en_Amplitud"/>
    </widget>
    <addaction name="menuguardar"/>
   </widget>
@@ -298,6 +300,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionRecorrido_en_Profundidad_Amplitud">
+   <property name="text">
+    <string>Recorrido en Profundidad</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionRecorrido_en_Amplitud">
+   <property name="text">
+    <string>Recorrido en Amplitud</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
    </property>
   </action>
  </widget>
