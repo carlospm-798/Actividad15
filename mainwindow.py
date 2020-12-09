@@ -32,8 +32,7 @@ class MainWindow(QMainWindow):
         self.ui.actionabrir.triggered.connect(self.action_abrir) #agregado
         self.ui.actiongrafo.triggered.connect(self.mostrar_diccionario)
         
-        self.ui.actionRecorrido_en_Profundidad_Amplitud.triggered.connect(self.recorrido_p)
-        self.ui.actionRecorrido_en_Amplitud.triggered.connect(self.recorrido_a)
+        self.ui.actionRecorrido_en_Profundidad_Amplitud.triggered.connect(self.recorrido_p_a)
         self.grafo = {}
 
         self.scene = QGraphicsScene()
@@ -46,7 +45,7 @@ class MainWindow(QMainWindow):
             self.ui.graphicsView.scale(0.8, 0.8)
     
     @Slot()
-    def recorrido_p(self):
+    def recorrido_p_a(self):
         origen_x = self.ui.origen_x_spinBox.value()
         origen_y = self.ui.origen_y_spinBox.value()
         if not self.libreria.metodo_p(self.grafo, origen_x, origen_y):
@@ -64,18 +63,7 @@ class MainWindow(QMainWindow):
             for i in profundidad:
                 self.ui.salida.insertPlainText(str(i) + '\n')
                 print(i)
-    
-    @Slot()
-    def recorrido_a(self):
-        origen_x = self.ui.origen_x_spinBox.value()
-        origen_y = self.ui.origen_y_spinBox.value()
-        if not self.libreria.metodo_a(self.grafo, origen_x, origen_y):
-            QMessageBox.warning(
-                self,
-                'Aviso',
-                'No es posible leer los valores'
-            )
-        else:
+
             amplitud = self.particulas.metodo_a(self.grafo, origen_x, origen_y)
             print('Amplitud: \n')
 
