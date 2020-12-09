@@ -11,7 +11,7 @@ from ui_mainwindow import Ui_MainWindow
 from libreria import Libreria #particulas - Particulas
 from particula import Particula
 from pprint import pprint
-from pprint import pformat
+from pprint import pformat, pformat
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,6 +31,10 @@ class MainWindow(QMainWindow):
         self.ui.actionguardar.triggered.connect(self.action_guardar) #agregado
         self.ui.actionabrir.triggered.connect(self.action_abrir) #agregado
         self.ui.actiongrafo.triggered.connect(self.mostrar_diccionario)
+        
+        self.ui.actionRecorrido_en_Profundidad_Amplitud.triggered.connect(self.recorrido_p)
+        self.ui.actionRecorrido_en_Amplitud.triggered.connect(self.recorrido_a)
+        self.grafo = {}
 
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
@@ -40,11 +44,53 @@ class MainWindow(QMainWindow):
             self.ui.graphicsView.scale(1.2, 1.2)
         else:
             self.ui.graphicsView.scale(0.8, 0.8)
+    
+    @Slot()
+    def recorrido_p(self):
+        origen_x = self.ui.origen_x_spinBox.value()
+        origen_y = self.ui.origen_y_spinBox.value()
+        if not self.libreria.metodo_p(self.grafo, origen_x, origen_y):
+            QMessageBox.warning(
+                self,
+                'Aviso',
+                'No es posible leer los valores'
+            )
+        else:
+            profundidad = self.libreria.metodo_p(self.grafo, origen_x, origen_y)
+            print('Profundidad: \n')
+
+            self.ui.salida.clear()
+            self.ui.salida.insertPlainText('Profundidad: ' + '\n')
+            for i in profundidad:
+                self.ui.salida.insertPlainText(str(i) + '\n')
+                print(i)
+    
+    @Slot()
+    def recorrido_a(self):
+        origen_x = self.ui.origen_x_spinBox.value()
+        origen_y = self.ui.origen_y_spinBox.value()
+        if not self.libreria.metodo_a(self.grafo, origen_x, origen_y):
+            QMessageBox.warning(
+                self,
+                'Aviso',
+                'No es posible leer los valores'
+            )
+        else:
+            amplitud = self.particulas.metodo_a(self.grafo, origen_x, origen_y)
+            print('Amplitud: \n')
+
+            self.ui.salida.clear()
+            self.ui.salida.insertPlainText('Amplitud:' + '\n')
+            for i in amplitud:
+                self.ui.salida.insertPlainText(str(i) + '\n')
+                print(i)
 
     @Slot()
     def mostrar_diccionario(self):
         self.ui.salida.clear()
-        self.ui.salida.insertPlainText(self.libreria.mostrar_diccionario())
+        self.grafo.clear()
+        grafo = self.libreria.mostrar_diccionario(self.grafo)
+        self.ui.salida.insertPlainText(grafo)
         QMessageBox.information(
             self,
             'Exito',
