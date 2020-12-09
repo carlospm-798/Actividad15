@@ -39,7 +39,7 @@ class Libreria:
         str = pformat(grafo, width = 40, indent = 1)
         return str
     
-    def metodo_p(self, grafo, origen_x = 0, origen_y = 0):
+    def metodo_p(self, grafo, origen_x = 0, origen_y = 0): #metodo de profundidad
         self.mostrar_diccionario(grafo)
         key = (origen_x, origen_y)
 
@@ -64,7 +64,7 @@ class Libreria:
         else:
             return 0
     
-    def metodo_a(self, grafo, origen_x=0, origen_y=0):
+    def metodo_a(self, grafo, origen_x=0, origen_y=0): #metodo de amplitud
         self.mostrar_diccionario(grafo)
         key = (origen_x, origen_y)
 
